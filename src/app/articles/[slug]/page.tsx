@@ -30,7 +30,7 @@ type CodeProps = {
 type ArticleProps = { params: { slug: string } };
 
 const getArticle = (slug: string) => {
-  return fs.readFileSync(`src/docs/${slug}.md`, "utf-8");
+  return fs.readFileSync(`public/assets/docs/${slug}.md`, "utf-8");
 };
 
 const Code = ({ className, children }: CodeProps) => {
