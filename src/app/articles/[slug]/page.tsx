@@ -29,7 +29,7 @@ type CodeProps = {
 type ArticleProps = { params: { slug: string } };
 
 const getArticle = async (slug: string) => {
-  return fs.readFile(`assets/docs/${slug}.md`, "utf8");
+  return fs.readFile(`public/docs/${slug}.md`, "utf8");
 };
 
 const Code = ({ className, children }: CodeProps) => {
