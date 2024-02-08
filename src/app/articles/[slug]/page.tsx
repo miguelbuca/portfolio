@@ -1,3 +1,4 @@
+'use server'
 import React from "react";
 import fs from "fs";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -11,6 +12,7 @@ import php from "react-syntax-highlighter/dist/cjs/languages/prism/php";
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import markdown from "react-syntax-highlighter/dist/cjs/languages/prism/markdown";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
+import { GetServerSideProps } from "next/types";
 
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("ts", typescript);
@@ -31,6 +33,21 @@ type ArticleProps = { params: { slug: string } };
 const getArticle = (slug: string) => {
   return fs.readFileSync(`src/docs/${slug}.md`, "utf-8");
 };
+
+export const getServerSideProps: GetServerSideProps = async (ctx: any) => {
+  const { slug } = ctx.params;
+
+  getArticle(slug)
+
+  const { data: pool } = await api.get(`pools/${slug}`);
+
+  return {
+    props: {
+      pool,
+    },
+  };
+};
+
 
 const Code = ({ className, children }: CodeProps) => {
   return (
