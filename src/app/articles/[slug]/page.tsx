@@ -1,8 +1,8 @@
 import React from "react";
-import { promises as fs } from "fs";
+import fs from "fs";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import remarkGfm from 'remark-gfm'
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import tsx from "react-syntax-highlighter/dist/cjs/languages/prism/tsx";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
@@ -28,8 +28,8 @@ type CodeProps = {
 
 type ArticleProps = { params: { slug: string } };
 
-const getArticle = async (slug: string) => {
-  return fs.readFile(`docs/${slug}.md`, "utf8");
+const getArticle = (slug: string) => {
+  return fs.readFileSync(`src/docs/${slug}.md`, "utf-8");
 };
 
 const Code = ({ className, children }: CodeProps) => {
@@ -48,7 +48,7 @@ const Code = ({ className, children }: CodeProps) => {
   );
 };
 
-const Article = async ({ params }: ArticleProps) => {
+const Article = ({ params }: ArticleProps) => {
   return (
     <div className="container pb-16 mt-24">
       <pre className="[&_p]:whitespace-normal font-sans [&_p]:font-normal [&_h1]:whitespace-normal [&_h1]:text-2xl [&_table]:table-auto [&_table]:border-collapse [&_table_*]:border [&_table_*]:p-1 [&_table_*]:border-black/[0.06] [&_table_*]:dark:border-white/[0.06] [&_a]:text-blue-500  [&_h1]:mb-3 [&_li]:text-sm [&_p]:text-sm [&_li]:opacity-60 [&_p]:opacity-60 [&_ul]:leading-3  [&_li]:whitespace-normal [&_ul]:list-none">
@@ -58,7 +58,7 @@ const Article = async ({ params }: ArticleProps) => {
           }}
           remarkPlugins={[remarkGfm]}
         >
-          {await getArticle(params.slug)}
+          {getArticle(params.slug)}
         </ReactMarkdown>
       </pre>
     </div>
