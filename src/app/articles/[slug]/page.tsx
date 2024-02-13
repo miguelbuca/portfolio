@@ -52,6 +52,8 @@ const Article = ({ params }: ArticleProps) => {
     axios.get(`/api?file=${params.slug}`).then(({ data }) => setMarkdown(data));
   }, [params.slug]);
 
+  console.log(markdown);
+
   return (
     <div className="container pb-16 mt-24">
       <pre className="[&_p]:whitespace-normal font-sans [&_p]:font-normal [&_h1]:whitespace-normal [&_h1]:text-2xl [&_table]:table-auto [&_table]:border-collapse [&_table_*]:border [&_table_*]:p-1 [&_table_*]:border-black/[0.06] [&_table_*]:dark:border-white/[0.06] [&_a]:text-blue-500  [&_h1]:mb-3 [&_li]:text-sm [&_p]:text-sm [&_li]:opacity-60 [&_p]:opacity-60 [&_ul]:leading-3  [&_li]:whitespace-normal [&_ul]:list-none">
