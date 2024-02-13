@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -44,10 +45,14 @@ const Code = ({ className, children }: CodeProps) => {
   );
 };
 
-const Article = async ({ params }: ArticleProps) => {
-  const { data } = await axios.get(`/api?file=${params.slug}`);
+const Article = ({ params }: ArticleProps) => {
+  const [markdown, setMarkdown] = useState("");
 
-  console.log(data);
+  useEffect(() => {
+    axios.get(`/api?file=${params.slug}`).then(({ data }) => setMarkdown(data));
+  }, [params.slug]);
+
+  console.log(markdown);
 
   return (
     <div className="container pb-16 mt-24">
@@ -58,7 +63,7 @@ const Article = async ({ params }: ArticleProps) => {
           }}
           remarkPlugins={[remarkGfm]}
         >
-          {data}
+          {markdown}
         </ReactMarkdown>
       </pre>
     </div>
