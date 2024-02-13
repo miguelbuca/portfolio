@@ -1,9 +1,8 @@
 import fs from "fs";
-import { NextResponse } from "next/server";
-import type { NextApiRequest } from 'next'
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
-  req: NextApiRequest
+  req: NextRequest
 ) {
   const slug = req.url?.split('=')[1]
 
