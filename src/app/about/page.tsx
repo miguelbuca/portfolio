@@ -11,19 +11,11 @@ const About = () => {
             I’m Miguel Buca. I live in Luanda, where I build the next level.
           </h1>
           <p className="opacity-60 mt-4">
-            {`I have always loved creating things, as far as I can remember, and I
-            wrote my first program when I was 12 years old. I was a kid who
-            really enjoyed playing Minecraft, so that's how I started
-            programming server plugins using Java. The only thing I like more
-            than computers is traveling. I love to see new places around the
-            world, to have insane experiences or calmer ones, like parachute
-            jumping or visiting a nice restaurant. Cold places enchant me, but
-            warm places also have their place in my heart. Besides computers and
-            traveling, I am passionate about the feeling of entrepreneurship. I
-            love the challenges I had to face (and still face today) in some of
-            the opportunities I had. Today, I am one of the co-founders & CTO of
-            Vain, a platform that aims to simplify the provision and use of
-            aesthetic services in Brazil.`}
+            {`Since 2013, I've been captivated by the ever-evolving world of technology, and my fascination has only grown stronger over time. In 2016, I embarked on my programming journey by undertaking the Java course provided by the esteemed University XTI. This marked the genesis of my programming odyssey, and since then, I haven't looked back.
+
+With a diverse background in various programming languages, I found my niche in mobile development around 2019. Today, I proudly serve as the co-founder and CTO of Biscato, a groundbreaking startup dedicated to connecting temporary workers, known as "Biscateiros," with individuals in need of assistance, particularly in household tasks.
+
+My journey thus far has been a blend of continuous learning, challenging experiences, and an unwavering passion for crafting technological solutions that positively impact people's lives. I am committed to relentlessly pursuing new challenges and opportunities to innovate and make a difference in the realm of technology.`}
           </p>
         </div>
         <div className="flex items-center justify-center my-12 md:my-24 w-full">
